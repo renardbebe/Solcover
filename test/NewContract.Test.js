@@ -7,18 +7,18 @@ const { assert } = chai
 const chaiAsPromised = require('chai-as-promised')
 chai.use(chaiAsPromised)
 
-const NewContract = artifacts.require('NewContract')
+const TestContract = artifacts.require('NewContract')
 
 contract('NewContract', (accounts) => {
-    let newContract
-    describe('New contract ', () => {
+    let testContract
+    describe('', () => {
         it('contract should deploy', async () => {
-            newContract = await NewContract.new()
+            testContract = await TestContract.new()
         })
         it('should return 1+1 = 2', async () => {
-            newContract = await NewContract.new()
+            testContract = await TestContract.new()
 
-            const value = await newContract.sum(1,1)
+            const value = await testContract.sum(1,1)
 
             assert.equal(
                 value.toNumber(),
