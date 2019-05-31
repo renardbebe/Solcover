@@ -20,4 +20,4 @@ npm i
 ```
 ### Run 
 ```
-npx solidity-coverage
+python3 runCmd.py
