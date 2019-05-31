@@ -17,6 +17,7 @@ npm install -g truffle@4.1.12
  
 ```bash
 npm i
+truffle init
 ```
 ### Run 
 ```
