@@ -18,16 +18,24 @@ contract('R_ContractName', (accounts) => {
         it('R_FunctionName', async () => {
             testContract = await TestContract.new()
 
-            const value = await testContract.R_Signature()
+            const value = await testContract.R_FunctionName(R_Signature)
 
             // read from file
-            const filename = 'expectOut'
-            const output = fs.readFileSync(path+filename)
+            const filename = 'R_ContractName.expect.out'
+            const output = fs.readFileSync(PROJECT_PATH+'scripts/'+filename).toString()
 
-            assert.equal(
-                value.toNumber(),
-                output.toNumber()
-            )
+            if(value.toNumber() == Number(output)) {
+                console.log("* pass")
+            }
+            else {
+                // when occurs bug / vuln
+                console.log("* fail")
+                var data = ['R_ContractName', 'R_FunctionName', 'R_Inter','(R_Signature)', value.toNumber().toString(), output, '\n']
+                fs.writeFileSync(PROJECT_PATH+"/output/bugReport", data, {
+                    flag: 'a+'
+                })
+            }
+
         })
     })
 })

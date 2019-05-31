@@ -18,11 +18,11 @@ contract('R_ContractName', (accounts) => {
         it('R_FunctionName', async () => {
             testContract = await TestContract.new()
 
-            const value = await testContract.R_Signature()
+            const value = await testContract.R_FunctionName(R_Signature)
 
             // write expected output to file
-            const filename = 'expectOut'
-            fs.writeFileSync(path+filename, value)
+            const filename = 'R_ContractName.expect.out'
+            fs.writeFileSync(PROJECT_PATH+'scripts/'+filename, value)
         })
     })
 })
