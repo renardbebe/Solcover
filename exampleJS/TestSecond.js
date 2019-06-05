@@ -24,6 +24,7 @@ contract('R_ContractName', (accounts) => {
             const filename = 'R_ContractName.expect.out'
             const output = fs.readFileSync(PROJECT_PATH+'scripts/'+filename).toString()
 
+            console.log("--> ", value.toNumber(), Number(output))
             if(value.toNumber() == Number(output)) {
                 console.log("* pass")
             }
@@ -35,7 +36,6 @@ contract('R_ContractName', (accounts) => {
                     flag: 'a+'
                 })
             }
-
         })
     })
 })
